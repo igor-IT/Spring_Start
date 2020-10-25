@@ -2,6 +2,9 @@ package spring_start;
 
 public class Main {
     public static void main(String[] args) {
-        new IRobot().cleanRoom();
+       // ObjectFactory.getInstance().createObject(IRobot.class).cleanRoom();
+        Worker worker = ObjectFactory.getInstance().createObject(Worker.class);
+        worker.drinkBeer();
+        worker.work();
     }
 }

@@ -1,13 +1,17 @@
 package spring_start;
 
+import lombok.SneakyThrows;
+
 public class IRobot {
-    private Speaker speaker = ObjectFactory.getInstance().createObject(Speaker.class);
-    private Cleaner cleaner = ObjectFactory.getInstance().createObject(Cleaner.class);
+    @InjectByType
+    private Speaker speaker ;
+    @InjectByType
+    private Cleaner cleaner ;
+    @SneakyThrows
     public void cleanRoom(){
         speaker.speak("I started");
         cleaner.clean();
+        Thread.sleep(800);
         speaker.speak("I finished");
     }
-
-
 }
